@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CACS – Compliance &amp; Audit Clearance System</title>
+  <title>CACS – Pre-Funding Decision Engine</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -17,7 +17,7 @@
         <a href="#api">API</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeIAzND0figmbmkwPx9PkOJbWU2HS6h6dp1BeXAfue6tqIjiA/viewform?usp=header" class="btn btn-nav" target="_blank" rel="noopener noreferrer">Apply for Pilot</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeIAzND0figmbmkwPx9PkOJbWU2HS6h6dp1BeXAfue6tqIjiA/viewform?usp=header" class="btn btn-nav" target="_blank" rel="noopener noreferrer">Apply for Access</a>
       </nav>
     </div>
   </header>
@@ -26,14 +26,14 @@
   <section class="hero">
     <div class="container hero-inner">
       <div class="hero-text">
-        <span class="badge">Compliance &amp; Audit Clearance System</span>
-        <h1>If your documentation<br />doesn't hold up at audit,<br />your funding doesn't either.</h1>
-        <p>Federal compliance infrastructure for workforce and social programs. CACS enforces 2 CFR 200 Uniform Guidance, verifies every participant before funds move, and delivers real-time clearance decisions through a live REST API.</p>
+        <span class="badge">Pre-Funding Decision Engine</span>
+        <h1>Before funds move,<br />CACS decides.</h1>
+        <p>CACS is a funding gate. It evaluates every participant against your program's funding rules and issues one decision — ALLOW or BLOCK — before any dollar is released. No decision, no disbursement.</p>
         <div class="hero-cta">
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeIAzND0figmbmkwPx9PkOJbWU2HS6h6dp1BeXAfue6tqIjiA/viewform?usp=header" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Apply for Pilot</a>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeIAzND0figmbmkwPx9PkOJbWU2HS6h6dp1BeXAfue6tqIjiA/viewform?usp=header" class="btn btn-outline" target="_blank" rel="noopener noreferrer">Book Compliance Demo</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeIAzND0figmbmkwPx9PkOJbWU2HS6h6dp1BeXAfue6tqIjiA/viewform?usp=header" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Apply for Access</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeIAzND0figmbmkwPx9PkOJbWU2HS6h6dp1BeXAfue6tqIjiA/viewform?usp=header" class="btn btn-outline" target="_blank" rel="noopener noreferrer">Book a Decision Demo</a>
         </div>
-        <p style="margin-top:20px; font-size:0.85rem; color:var(--text-muted);">Built for programs operating under WIOA, CDBG, Title I, HHS, and DOL 2 CFR 200 compliance requirements.</p>
+        <p style="margin-top:20px; font-size:0.85rem; color:var(--text-muted);">Built for programs operating under WIOA, CDBG, Title I, HHS, and DOL funding requirements.</p>
       </div>
       <div class="hero-graphic" aria-hidden="true">
         <div class="orb orb-1"></div>
@@ -42,7 +42,7 @@
         <div class="card-float">
           <div class="card-float-icon">&#10003;</div>
           <div>
-            <strong>2 CFR 200 Compliant</strong>
+            <strong>Decision Enforced</strong>
             <p>&#167;200.405 basis on every fund release</p>
           </div>
         </div>
@@ -50,58 +50,51 @@
     </div>
   </section>
 
+  <!-- PROBLEM -->
+  <section class="problem">
+    <div class="container">
+      <h2>Money is moving before the decision is made.</h2>
+      <p>Funds get released. Enrollments get confirmed. Audits happen later. By then, the ineligible participant is already in the system and the funding is already at risk.</p>
+      <p>CACS moves the decision to the front. Before enrollment. Before disbursement. Before it is too late to act on it.</p>
+    </div>
+  </section>
 
-<section class="problem">
-<div class="container">
-    <h2>The real problem is not data. It is proof.</h2>
-    <p>Programs do not fail because their mission is weak. They fail because the documentation does not hold up when it counts — at audit time, at funding review, when a funder asks for evidence and the files are not in order.</p>
-    <p>For programs operating under 2 CFR 200 Uniform Guidance — WIOA, CDBG, Title I, HHS, and DOL workforce funding — documentation is not a filing exercise. It is a federal requirement tied directly to your right to spend.</p>
-  </div>
-</section>
-
-<!-- FEATURES -->
+  <!-- FEATURES / HOW IT WORKS -->
   <section class="features" id="features">
     <div class="container">
-      <h2 class="section-title">Federal compliance infrastructure. One system.</h2>
-      <p class="section-sub">CACS uses configurable, rules-based verification infrastructure to validate identity, eligibility, and compliance evidence against each organization's program requirements — mapped to 2 CFR 200 Uniform Guidance by section — before funds move or outcomes are reported.<br /><br />Verification is not manual or opinion-based. It is enforced through connected validation systems and structured rules that create a consistent, audit-defensible record. Every decision is stamped with the engine version and the federal citation that produced it.<br /><br />The same verified data then powers every output your program needs to operate, defend, and report.</p>
+      <h2 class="section-title">How it works.</h2>
+      <p class="section-sub">
+        <strong>1. Verify inputs.</strong> Identity and eligibility are evaluated against your program's funding rules before the decision runs.<br /><br />
+        <strong>2. Issue decision.</strong> The engine produces one output — ALLOW or BLOCK. Versioned, timestamped, and cited to the applicable funding rule.<br /><br />
+        <strong>3. Enforce decision.</strong> ALLOW opens the funding gate. BLOCK holds it. No funds move until the decision clears.
+      </p>
       <div class="features-grid">
         <div class="feature-card">
-          <div class="feature-icon">&#128203;</div>
-          <h3>Compliance Risk Report</h3>
-          <p>Flags missing, expired, or invalid compliance items — each mapped to the applicable 2 CFR 200 section. Identifies risk before money moves and supports real-time clearance decisions with specific federal citations, not vague flags.</p>
-          <span class="cfr-badge">2 CFR 200 &#167;200.303 &middot; &#167;200.415</span>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">&#128274;</div>
-          <h3>Audit-Ready Evidence Package</h3>
-          <p>Organizes required documentation in one place with a clear verification history and defensible records. Includes a structured auditor export formatted for OIG review — with a complete 2 CFR 200 Uniform Guidance section, engine version stamp, and timestamped clearance trail.</p>
-          <span class="cfr-badge">Auditor Export &middot; Uniform Guidance Section Included</span>
-        </div>
-        <div class="feature-card">
-          <div class="feature-icon">&#128200;</div>
-          <h3>Outcome + Impact Reports</h3>
-          <p>Generates funder-facing reports that connect baseline intake, milestones, completion, placement, and measurable participant progress over time — using the same verified records, without reformatting. Uniform Guidance compliance basis included in every report.</p>
-        </div>
-        <div class="feature-card">
           <div class="feature-icon">&#9881;&#65039;</div>
-          <h3>Rules-Based Verification Layer</h3>
-          <p>Configurable verification rules run against identity, eligibility, and program-specific criteria. Each check is logged, traceable, and cited to the applicable 2 CFR 200 section. Every decision is stamped with the engine version that produced it — critical for programs under monitoring or corrective action.</p>
+          <h3>Rules-Based Decision Engine</h3>
+          <p>Your program's funding criteria are configured as enforceable rules. The engine evaluates every rule and produces a single decision. Versioned, cited, and enforced. No exceptions.</p>
           <span class="cfr-badge">Engine Versioned &middot; 2 CFR 200 Citations</span>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#128275;</div>
+          <h3>Identity Verification Input</h3>
+          <p>Identity verification feeds directly into the decision. If identity cannot be confirmed, the decision does not clear. Verification is an input to the engine — not a separate product.</p>
+          <span class="cfr-badge">Connected Verification &middot; Decision-Gated</span>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">&#128296;</div>
+          <h3>Hard Funding Gate</h3>
+          <p>ALLOW opens the gate. BLOCK holds it. No funds move until the engine issues a cleared decision. Every release is stamped with a 2 CFR 200 &#167;200.405 cost allocation basis. No manual override.</p>
+          <span class="cfr-badge">2 CFR 200 &#167;200.405 &middot; Cost Allocation Basis</span>
         </div>
         <div class="feature-card">
           <div class="feature-icon">&#128269;</div>
           <h3>Cross-Org Duplicate Detection</h3>
-          <p>Identity hashing with SSN last-4 catches participants enrolled across multiple organizations and grant programs — a leading OIG audit finding category. Federal regulations prohibit double-counting participants across grants. CACS enforces it by design, before funds move.</p>
+          <p>Prevents duplicate funding before a decision clears. If a participant has already been funded across another organization or grant, the decision is blocked.</p>
           <span class="cfr-badge">2 CFR 200 &#167;200.303 &middot; Cross-Program Registry</span>
         </div>
-        <div class="feature-card">
-          <div class="feature-icon">&#128296;</div>
-          <h3>Workflow Gate Controls</h3>
-          <p>Hard gates block funding release, milestone progression, and outcome reporting until all required verification checks and program rules are satisfied — not just reviewed. Every fund release is stamped with a 2 CFR 200 &#167;200.405 cost allocation basis. No manual override without a cleared status on record.</p>
-          <span class="cfr-badge">2 CFR 200 &#167;200.405 &middot; Cost Allocation Basis</span>
-        </div>
       </div>
-      <p class="section-sub" style="margin-top:40px; margin-bottom:0; font-weight:700; color:var(--text);">Federal citations. Live API. One system. No rework.</p>
+      <p class="section-sub" style="margin-top:40px; margin-bottom:0; font-weight:700; color:var(--text);">One decision controls whether funding moves. Nothing else.</p>
     </div>
   </section>
 
@@ -109,41 +102,41 @@
   <section class="about" id="about">
     <div class="container about-inner">
       <div class="about-text">
-        <h2>Built to plug in, not force a <span>rip-and-replace</span></h2>
-        <p>Most organizations already have forms, spreadsheets, staff workflows, and reporting obligations. CACS is designed to sit on top of existing processes, structure the data properly, and convert it into compliance and reporting outputs that can stand up to scrutiny.</p>
+        <h2>CACS enforces the decision. Your systems do <span>everything else.</span></h2>
+        <p>CACS does not replace your case management platform or funder portal. It sits at the funding gate and issues the decision those systems need before money can move.</p>
         <ul class="about-list">
-          <li>&#10003; Works alongside current workflows</li>
-          <li>&#10003; Reduces duplicate data handling</li>
-          <li>&#10003; Connects compliance activity to reporting outputs</li>
-          <li>&#10003; Maps every verification rule to 2 CFR 200 Uniform Guidance sections</li>
-          <li>&#10003; Exposes live clearance status through REST API — no manual exports required</li>
-          <li>&#10003; Helps programs become audit-ready without rebuilding everything</li>
+          <li>&#10003; Connects to existing workflows via API</li>
+          <li>&#10003; Issues decisions before disbursement, not after</li>
+          <li>&#10003; Enforces funding rules without manual review</li>
+          <li>&#10003; Decision record available for audit without reconstruction</li>
+          <li>&#10003; Live funding decisions delivered through REST API</li>
+          <li>&#10003; Defensible decision record from day one</li>
         </ul>
       </div>
       <div class="about-stats">
         <div class="stat">
           <span class="stat-num" style="font-size:1rem; font-weight:700;">PRE-FUNDING</span>
-          <span class="stat-label">Verification before money moves</span>
-          <p style="font-size:0.78rem; margin-top:8px; color:var(--text-muted);">Every participant is cleared — identity, eligibility, and documentation — before funding is approved or enrollment is confirmed.</p>
-          <p style="font-size:0.75rem; margin-top:6px; color:var(--accent); font-style:italic;">Result: no ineligible enrollments, no retroactive surprises</p>
+          <span class="stat-label">Decision before disbursement</span>
+          <p style="font-size:0.78rem; margin-top:8px; color:var(--text-muted);">Every participant is evaluated before funding is approved or enrollment is confirmed. No cleared decision, no funds released.</p>
+          <p style="font-size:0.75rem; margin-top:6px; color:var(--accent); font-style:italic;">Result: no ineligible enrollments, no retroactive exposure</p>
         </div>
         <div class="stat">
-          <span class="stat-num" style="font-size:1rem; font-weight:700;">LOCKED EVIDENCE</span>
-          <span class="stat-label">Audit trail that holds up</span>
-          <p style="font-size:0.78rem; margin-top:8px; color:var(--text-muted);">Every document upload, clearance decision, and status change is timestamped and locked. Auditors see exactly what happened and when.</p>
-          <p style="font-size:0.75rem; margin-top:6px; color:var(--accent); font-style:italic;">Result: audit-ready evidence without scrambling at review time</p>
+          <span class="stat-num" style="font-size:1rem; font-weight:700;">LOCKED RECORD</span>
+          <span class="stat-label">Decision record that holds under audit</span>
+          <p style="font-size:0.78rem; margin-top:8px; color:var(--text-muted);">Every decision is timestamped, versioned, and locked at the moment it is issued. Auditors see exactly what decision was made, when, and which rule produced it.</p>
+          <p style="font-size:0.75rem; margin-top:6px; color:var(--accent); font-style:italic;">Result: audit-ready evidence without reconstruction</p>
         </div>
         <div class="stat">
-          <span class="stat-num" style="font-size:1rem; font-weight:700;">AUTO REPORTING</span>
-          <span class="stat-label">Compliance reports without rework</span>
-          <p style="font-size:0.78rem; margin-top:8px; color:var(--text-muted);">Clearance data flows directly into compliance and outcome reports. No manual assembly — the record builds itself as your program operates.</p>
-          <p style="font-size:0.75rem; margin-top:6px; color:var(--accent); font-style:italic;">Result: funders get structured proof, not narratives built from memory</p>
+          <span class="stat-num" style="font-size:1rem; font-weight:700;">SINGLE OUTPUT</span>
+          <span class="stat-label">One decision. One outcome.</span>
+          <p style="font-size:0.78rem; margin-top:8px; color:var(--text-muted);">The decision issued by CACS is the source of truth for every downstream system. No reconciliation. No rework.</p>
+          <p style="font-size:0.75rem; margin-top:6px; color:var(--accent); font-style:italic;">Result: one cleared record, no conflicting data</p>
         </div>
         <div class="stat">
           <span class="stat-num" style="font-size:1rem; font-weight:700;">LIVE API</span>
-          <span class="stat-label">Clearance status via REST</span>
-          <p style="font-size:0.78rem; margin-top:8px; color:var(--text-muted);">External systems — case management platforms, funder portals, workforce boards — can query participant clearance status in real time through the CACS Clearance API.</p>
-          <p style="font-size:0.75rem; margin-top:6px; color:var(--accent); font-style:italic;">Result: connects your existing stack without data re-entry</p>
+          <span class="stat-label">Decision delivered in real time</span>
+          <p style="font-size:0.78rem; margin-top:8px; color:var(--text-muted);">Your existing systems query the funding decision through the CACS API and enforce it immediately — no manual transfer, no delay.</p>
+          <p style="font-size:0.75rem; margin-top:6px; color:var(--accent); font-style:italic;">Result: your stack enforces the decision in real time</p>
         </div>
       </div>
     </div>
@@ -152,29 +145,29 @@
   <!-- REST API -->
   <section class="features" id="api">
     <div class="container">
-      <h2 class="section-title">Live REST API — Connect Your Systems</h2>
-      <p class="section-sub">The CACS Clearance API delivers org-scoped clearance decisions to external systems in real time. Case management platforms, funder portals, and workforce systems can query participant status without manual data transfer. Authenticated with per-org API keys. PII filtered by design. 2 CFR 200 retention basis in every response.</p>
+      <h2 class="section-title">The moment a decision is made, your system enforces it.</h2>
+      <p class="section-sub">The CACS API delivers the funding decision to your existing systems in real time. One call. One decision returned. Your platform acts on it immediately — no manual transfer, no delay, no exports.</p>
       <div class="features-grid">
         <div class="feature-card">
           <div class="feature-icon">&#128203;</div>
-          <h3>Participant Clearance Status</h3>
-          <p>Query the current clearance status of any participant — CLEARED, BLOCKED, ACTION_REQUIRED, or PENDING — with full compliance context and the versioned rule set that produced the decision.</p>
+          <h3>Participant Funding Decision</h3>
+          <p>Query the current decision for any participant — CLEARED, BLOCKED, ACTION REQUIRED, or PENDING — with the rule and citation that produced it.</p>
           <span class="api-endpoint">GET /clearance/status</span>
         </div>
         <div class="feature-card">
           <div class="feature-icon">&#127970;</div>
-          <h3>Org-Scoped Compliance View</h3>
-          <p>Pull aggregate clearance data for your entire organization. Scoped to your API key — no cross-org data exposure by design. Returns participant counts, risk summary, and pending action items.</p>
+          <h3>Org-Scoped Decision View</h3>
+          <p>Pull all funding decisions for your organization. Scoped to your API key. Returns participant counts, blocked cases, and pending items. No cross-org exposure by design.</p>
           <span class="api-endpoint">GET /clearance/org</span>
         </div>
         <div class="feature-card">
           <div class="feature-icon">&#128196;</div>
-          <h3>Audit Trail Export</h3>
-          <p>Retrieve a complete, timestamped log of clearance decisions, status changes, and document events for your organization. Structured for programmatic ingestion or direct auditor review.</p>
+          <h3>Decision Record Export</h3>
+          <p>Retrieve a timestamped log of funding decisions and gate events for your organization. Available for programmatic ingestion or auditor review.</p>
           <span class="api-endpoint">GET /clearance/audit</span>
         </div>
       </div>
-      <p class="section-sub" style="margin-top:40px; margin-bottom:0; font-weight:700; color:var(--text);">Org-scoped API keys. PII filtered. 2 CFR 200 retention basis in every response.</p>
+      <p class="section-sub" style="margin-top:40px; margin-bottom:0; font-weight:700; color:var(--text);">One API call. One decision returned. Your system enforces it.</p>
     </div>
   </section>
 
@@ -189,14 +182,14 @@
           <h3 style="font-size:2rem; font-weight:700; margin:8px 0 4px;">Free</h3>
           <p style="font-size:0.8rem; color:var(--text-muted); margin:0 0 8px;">$0 / 90 days</p>
           <p style="font-size:0.78rem; font-weight:600; margin:0 0 12px;">Up to 15 participants</p>
-          <p>Design partners validating fit before full deployment. Subject to review and approval.</p>
+          <p>Organizations validating decision fit before full deployment. Subject to review and approval.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon" style="font-size:0.7rem; font-weight:700; letter-spacing:0.05em; color:var(--text-muted);">STARTER</div>
           <h3 style="font-size:2rem; font-weight:700; margin:8px 0 4px;">$497</h3>
           <p style="font-size:0.8rem; color:var(--text-muted); margin:0 0 8px;">$497 / month</p>
           <p style="font-size:0.78rem; font-weight:600; margin:0 0 12px;">Up to 25 participants</p>
-          <p>Small training providers and single-cohort nonprofits. Department-level decision, no procurement process required.</p>
+          <p>Single-site programs and small training providers. Full decision engine, API access, funding gate enforcement. No procurement process required.</p>
         </div>
         <div class="feature-card" style="position:relative;">
           <div style="position:absolute; top:-12px; left:50%; transform:translateX(-50%); background:var(--accent); color:#fff; font-size:0.65rem; font-weight:700; letter-spacing:0.08em; padding:3px 10px; border-radius:20px; white-space:nowrap;">MOST POPULAR</div>
@@ -204,20 +197,19 @@
           <h3 style="font-size:2rem; font-weight:700; margin:8px 0 4px;">$1,997</h3>
           <p style="font-size:0.8rem; color:var(--text-muted); margin:0 0 8px;">$1,997 / month</p>
           <p style="font-size:0.78rem; font-weight:600; margin:0 0 12px;">Up to 100 participants</p>
-          <p>Workforce boards and mid-size programs in active operation. Full compliance workflow, 2 CFR 200 citation mapping, evidence locker, clearance decisions, and auditor export. Clearance API access available as add-on.</p>
+          <p>Workforce boards and mid-size programs. Full decision workflow, cross-org duplicate detection, funding gate enforcement, and decision record export. API access available as add-on.</p>
         </div>
         <div class="feature-card">
           <div class="feature-icon" style="font-size:0.7rem; font-weight:700; letter-spacing:0.05em; color:var(--text-muted);">ENTERPRISE</div>
           <h3 style="font-size:2rem; font-weight:700; margin:8px 0 4px;">$5,000+</h3>
           <p style="font-size:0.8rem; color:var(--text-muted); margin:0 0 8px;">$5,000+ / month</p>
           <p style="font-size:0.78rem; font-weight:600; margin:0 0 12px;">Unlimited participants</p>
-          <p>Multi-site training organizations, large nonprofits, and funded program networks. Advanced reporting, auditor export packages, cross-org duplicate detection, priority support, and Clearance API access included.</p>
+          <p>Multi-site organizations and program networks. Advanced configuration, cross-org duplicate detection, priority support, and full API access included.</p>
         </div>
       </div>
-      <!-- VERIFICATION ADD-ON -->
       <div class="feature-card" style="margin-top:32px;">
-        <p style="font-size:0.7rem; font-weight:700; letter-spacing:0.05em; color:var(--text-muted); margin:0 0 6px;">VERIFICATION ADD-ON — BILLED AT COST PASS-THROUGH</p>
-        <p style="margin:0; font-size:0.85rem; color:var(--text-muted);">Identity verification, document validation, and fraud checks are available as a usage-based add-on. You are charged exactly what our verification vendor charges — no markup. Exact per-check pricing is confirmed at onboarding. Your subscription fee never changes based on verification volume.</p>
+        <p style="font-size:0.7rem; font-weight:700; letter-spacing:0.05em; color:var(--text-muted); margin:0 0 6px;">IDENTITY VERIFICATION — BILLED AT COST PASS-THROUGH</p>
+        <p style="margin:0; font-size:0.85rem; color:var(--text-muted);">Identity verification feeds directly into the funding decision. Connected providers confirm identity before the engine clears a participant. Billed at exact vendor cost — no markup. Verification volume does not affect your subscription tier.</p>
       </div>
     </div>
   </section>
@@ -226,13 +218,13 @@
   <section class="contact" id="contact">
     <div class="container contact-inner">
       <div class="pilot-cta">
-        <h2>Start Your Pilot Application</h2>
-        <p>Applications are reviewed within 24–48 hours. Approved organizations will be onboarded into the pilot.</p>
+        <h2>The decision starts here.</h2>
+        <p>Applications are reviewed within 24–48 hours. Approved organizations are onboarded and issued API credentials.</p>
         <a href="https://docs.google.com/forms/d/e/1FAIpQLSeIAzND0figmbmkwPx9PkOJbWU2HS6h6dp1BeXAfue6tqIjiA/viewform?usp=header"
            target="_blank"
            rel="noopener noreferrer"
            class="btn btn-primary">
-          Apply for Pilot
+          Apply for Access
         </a>
       </div>
     </div>
@@ -242,8 +234,7 @@
   <footer class="footer">
     <div class="container footer-inner">
       <a href="#" class="logo">CACS</a>
-
-      <p>&copy; 2026 CACS – Compliance &amp; Audit Clearance System. All rights reserved.</p>
+      <p>&copy; 2026 CACS – Pre-Funding Decision Engine. All rights reserved.</p>
       <div class="footer-links">
         <a href="#">Privacy</a>
         <a href="#">Terms</a>
