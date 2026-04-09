@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CACS – Pre-Funding Decision Engine</title>
+  <title>CACS – Decision API for Funding Systems</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -16,8 +16,8 @@
         <a href="#features">How It Works</a>
         <a href="#api">API</a>
         <a href="#about">About</a>
-        <a href="#contact">Contact</a>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeIAzND0figmbmkwPx9PkOJbWU2HS6h6dp1BeXAfue6tqIjiA/viewform?usp=header" class="btn btn-nav" target="_blank" rel="noopener noreferrer">Apply for Access</a>
+        <a href="#contact">Contact</a><a href="https://cacs-decision-api.onrender.com/health" target="_blank" rel="noopener noreferrer">Developers</a>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSeIAzND0figmbmkwPx9PkOJbWU2HS6h6dp1BeXAfue6tqIjiA/viewform?usp=header" class="btn btn-nav" target="_blank" rel="noopener noreferrer">Get API Access</a>
       </nav>
     </div>
   </header>
@@ -28,10 +28,10 @@
       <div class="hero-text">
         <span class="badge">Pre-Funding Decision Engine</span>
         <h1>Before funds move,<br />CACS decides.</h1>
-        <p>CACS is a funding gate. It evaluates every participant against your program's funding rules and issues one decision — ALLOW or BLOCK — before any dollar is released. No decision, no disbursement.</p>
+        <p>CACS is a decision API. Send a participant's documents. Receive one binding decision: CLEARED, BLOCKED, ACTION REQUIRED, or PENDING. Your system enforces it. No cleared decision, no disbursement.</p>
         <div class="hero-cta">
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeIAzND0figmbmkwPx9PkOJbWU2HS6h6dp1BeXAfue6tqIjiA/viewform?usp=header" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Apply for Access</a>
-          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeIAzND0figmbmkwPx9PkOJbWU2HS6h6dp1BeXAfue6tqIjiA/viewform?usp=header" class="btn btn-outline" target="_blank" rel="noopener noreferrer">Book a Decision Demo</a>
+          <a href="https://docs.google.com/forms/d/e/1FAIpQLSeIAzND0figmbmkwPx9PkOJbWU2HS6h6dp1BeXAfue6tqIjiA/viewform?usp=header" class="btn btn-primary" target="_blank" rel="noopener noreferrer">Get API Access</a>
+          <a href="https://cacs-decision-api.onrender.com/health" class="btn btn-outline" target="_blank" rel="noopener noreferrer">View API Docs</a>
         </div>
         <p style="margin-top:20px; font-size:0.85rem; color:var(--text-muted);">Built for programs operating under WIOA, CDBG, Title I, HHS, and DOL funding requirements.</p>
       </div>
@@ -65,8 +65,8 @@
       <h2 class="section-title">How it works.</h2>
       <p class="section-sub">
         <strong>1. Verify inputs.</strong> Identity and eligibility are evaluated against your program's funding rules before the decision runs.<br /><br />
-        <strong>2. Issue decision.</strong> The engine produces one output — ALLOW or BLOCK. The decision includes the exact evidence and rule used — so auditors don't reconstruct anything.<br /><br />
-        <strong>3. Enforce decision.</strong> ALLOW opens the funding gate. BLOCK holds it. No funds move until the decision clears.
+        <strong>2. Issue decision.</strong> The engine returns one of four deterministic outputs: CLEARED, BLOCKED, ACTION REQUIRED, or PENDING — with reason, consequence, and ownership in every response.<br /><br />
+        <strong>3. Enforce decision.</strong> CLEARED opens the funding gate. BLOCKED holds it. Your system parses the decision field and enforces it immediately. The audit record is written automatically.
       </p>
       <div class="features-grid">
         <div class="feature-card">
@@ -84,7 +84,7 @@
         <div class="feature-card">
           <div class="feature-icon">&#128296;</div>
           <h3>Hard Funding Gate</h3>
-          <p>ALLOW opens the gate. BLOCK holds it. No funds move until the engine issues a cleared decision. Every release is stamped with a 2 CFR 200 &#167;200.405 cost allocation basis. No manual override.</p>
+          <p>CLEARED opens the gate. BLOCKED holds it. No funds move until the engine issues a cleared decision. Every release is stamped with a 2 CFR 200 &#167;200.405 cost allocation basis. No manual override.</p>
           <span class="cfr-badge">2 CFR 200 &#167;200.405 &middot; Cost Allocation Basis</span>
         </div>
         <div class="feature-card">
@@ -152,19 +152,19 @@
           <div class="feature-icon">&#128203;</div>
           <h3>Participant Funding Decision</h3>
           <p>Query the current decision for any participant — CLEARED, BLOCKED, ACTION REQUIRED, or PENDING — with the rule and citation that produced it.</p>
-          <span class="api-endpoint">GET /clearance/status</span>
+          <span class="api-endpoint">POST /api/v1/decision</span>
         </div>
         <div class="feature-card">
           <div class="feature-icon">&#127970;</div>
           <h3>Org-Scoped Decision View</h3>
           <p>Pull all funding decisions for your organization. Scoped to your API key. Returns participant counts, blocked cases, and pending items. No cross-org exposure by design.</p>
-          <span class="api-endpoint">GET /clearance/org</span>
+          <span class="api-endpoint">POST /api/v1/decision</span>
         </div>
         <div class="feature-card">
           <div class="feature-icon">&#128196;</div>
           <h3>Decision Record Export</h3>
           <p>Retrieve a timestamped log of funding decisions and gate events for your organization. Available for programmatic ingestion or auditor review.</p>
-          <span class="api-endpoint">GET /clearance/audit</span>
+          <span class="api-endpoint">POST /api/v1/decision</span>
         </div>
       </div>
       <p class="section-sub" style="margin-top:40px; margin-bottom:0; font-weight:700; color:var(--text);">One API call. One decision returned. Your system enforces it.</p>
@@ -174,8 +174,8 @@
   <!-- TIERS -->
   <section class="features" id="tiers">
     <div class="container">
-      <h2 class="section-title">System Access Tiers</h2>
-      <p class="section-sub">All access begins with an application. No automatic billing — pilot partners review with us before any paid tier begins.</p>
+      <h2 class="section-title">API Pricing</h2>
+      <p class="section-sub">Volume-based pricing. Contact us for custom rates based on decision volume. No automatic billing — pilot access is free for 30 days.</p>
       <div class="features-grid">
         <div class="feature-card">
           <div class="feature-icon" style="font-size:0.7rem; font-weight:700; letter-spacing:0.05em; color:var(--text-muted);">PILOT</div>
@@ -224,7 +224,7 @@
            target="_blank"
            rel="noopener noreferrer"
            class="btn btn-primary">
-          Apply for Access
+          Get API Access
         </a>
       </div>
     </div>
@@ -234,7 +234,7 @@
   <footer class="footer">
     <div class="container footer-inner">
       <a href="#" class="logo">CACS</a>
-      <p>&copy; 2026 CACS – Pre-Funding Decision Engine. All rights reserved.</p>
+      <p>&copy; 2026 CACS – Decision API for Funding Systems. All rights reserved.</p>
       <div class="footer-links">
         <a href="#">Privacy</a>
         <a href="#">Terms</a>
