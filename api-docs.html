@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CACS API Reference</title>
+<style>
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 800px; margin: 0 auto; padding: 40px 24px; color: #1B3A52; background: #F8F9FA; }
+h1 { color: #1B3A52; font-size: 1.8rem; margin-bottom: 4px; }
+h2 { color: #1D9E75; font-size: 1.1rem; margin-top: 32px; margin-bottom: 8px; border-bottom: 2px solid #1D9E75; padding-bottom: 4px; }
+.badge { display: inline-block; background: #1D9E75; color: white; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; margin-bottom: 24px; }
+pre { background: #0f1923; color: #e2e8f0; padding: 20px; border-radius: 8px; overflow-x: auto; font-size: 0.85rem; line-height: 1.6; }
+ul { padding-left: 20px; line-height: 2; }
+li { font-size: 0.95rem; }
+.back { display: inline-block; margin-bottom: 24px; color: #1D9E75; text-decoration: none; font-size: 0.9rem; font-weight: 600; }
+p { line-height: 1.7; font-size: 0.95rem; }
+</style>
+</head>
+<body>
+<a href="/" class="back">← Back to getcacs.com</a>
+<h1>CACS Decision Engine</h1>
+<span class="badge">API Reference</span>
+<h2>Endpoint</h2>
+<pre>POST https://cacs-decision-api.onrender.com/api/v1/decision
+Authorization: Bearer YOUR_API_KEY</pre>
+<h2>Request Body</h2>
+<pre>{
+  "participant_id": "string — required",
+  "org_id":         "string — required",
+  "funding_amount": "number — required",
+  "callback_url":   "string — optional webhook URL",
+  "docs": {
+    "photoId":     { "status": "verified | uploaded | pending | missing | expired | invalid" },
+    "ssn":         { "status": "verified | uploaded | pending | missing | expired | invalid" },
+    "birth":       { "status": "verified | uploaded | pending | missing | expired | invalid" },
+    "cert":        { "status": "verified | uploaded | pending | missing | expired | invalid" },
+    "eligibility": { "status": "verified | uploaded | pending | missing | expired | invalid" }
+  }
+}</pre>
+<h2>Response Body</h2>
+<pre>{
+  "clearance_id":   "string — generated",
+  "participant_id": "string",
+  "org_id":         "string",
+  "decision":       "CLEARED | BLOCKED | ACTION REQUIRED | PENDING",
+  "reason":         "string",
+  "consequence":    "string",
+  "ownership":      "string",
+  "funding_status": "released | locked | hold",
+  "funding_amount": "number — 0 if not CLEARED",
+  "requested_at":   "ISO timestamp",
+  "decided_at":     "ISO timestamp"
+}</pre>
+<h2>Decision Rules</h2>
+<ul>
+<li><strong>BLOCKED</strong> — photoId, ssn, or birth missing/invalid OR cert invalid. Funding locked.</li>
+<li><strong>ACTION REQUIRED</strong> — any document expired OR non-critical document missing. Funding locked.</li>
+<li><strong>PENDING</strong> — all documents present but not all verified. Funding on hold.</li>
+<li><strong>CLEARED</strong> — all documents verified, no flags. Funding released.</li>
+</ul>
+<h2>Authentication</h2>
+<pre>Authorization: Bearer YOUR_API_KEY</pre>
+<p>Contact <a href="mailto:donceletta@getcacs.com?subject=API Access Request" style="color:#1D9E75;">donceletta@getcacs.com</a> to receive your API key.</p>
+<h2>Error Responses</h2>
+<pre>401 Unauthorized — { "error": "Unauthorized" }
+400 Bad Request  — missing required fields</pre>
+<h2>Webhook Support</h2>
+<p>Include callback_url in your request. CACS will POST the full decision response to your endpoint after it is logged. No polling required.</p>
+<p style="margin-top:24px;"><a href="/developers.html" style="color:#1D9E75; font-weight:600;">View full onboarding guide →</a></p>
+</body>
+</html>

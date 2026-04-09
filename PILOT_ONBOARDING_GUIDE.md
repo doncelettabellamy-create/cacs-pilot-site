@@ -20,7 +20,7 @@ POST https://cacs-decision-api.onrender.com/api/v1/decision
 All requests require a Bearer token:
 Authorization: Bearer YOUR_API_KEY
 
-Contact pilot@getcacs.com to receive your API key.
+Contact donceletta@getcacs.com to receive your API key.
 
 ## Request Format
 ```json
@@ -145,5 +145,5 @@ result via POST to your endpoint after it is logged.
 - Each clearance_id is unique and timestamped to the millisecond
 
 ## Support
-Email: pilot@getcacs.com
+Email: donceletta@getcacs.com
 Documentation: https://cacs-decision-api.onrender.com

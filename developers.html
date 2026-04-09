@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CACS Developer Guide</title>
+<style>
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; max-width: 800px; margin: 0 auto; padding: 40px 24px; color: #1B3A52; background: #F8F9FA; }
+h1 { color: #1B3A52; font-size: 1.8rem; margin-bottom: 4px; }
+h2 { color: #1D9E75; font-size: 1.1rem; margin-top: 32px; margin-bottom: 8px; border-bottom: 2px solid #1D9E75; padding-bottom: 4px; }
+.badge { display: inline-block; background: #1D9E75; color: white; font-size: 0.75rem; font-weight: 700; padding: 4px 12px; border-radius: 20px; margin-bottom: 24px; }
+pre { background: #0f1923; color: #e2e8f0; padding: 20px; border-radius: 8px; overflow-x: auto; font-size: 0.85rem; line-height: 1.6; }
+ol, ul { padding-left: 20px; line-height: 2; }
+li { font-size: 0.95rem; }
+.back { display: inline-block; margin-bottom: 24px; color: #1D9E75; text-decoration: none; font-size: 0.9rem; font-weight: 600; }
+.back:hover { text-decoration: underline; }
+p { line-height: 1.7; font-size: 0.95rem; }
+</style>
+</head>
+<body>
+<a href="/" class="back">← Back to getcacs.com</a>
+<h1>CACS Decision Lane</h1>
+<span class="badge">Pilot Onboarding Guide</span>
+<h2>5-Minute Quickstart (Postman)</h2>
+<ol>
+<li>Download the file: CACS_PILOT_POSTMAN.json (request via email below)</li>
+<li>Open Postman → click Import → select the file</li>
+<li>The collection "CACS Decision Lane — Pilot" appears with 3 requests</li>
+<li>Set Postman environment variable: CACS_API_KEY = your API key</li>
+<li>Open "Success (Cleared)" → click Send → expect decision: CLEARED</li>
+<li>Open "Fail (Blocked)" → click Send → expect decision: BLOCKED</li>
+<li>Open "Unauthorized (Wrong Key)" → click Send → expect 401</li>
+</ol>
+<h2>Endpoint</h2>
+<pre>POST https://cacs-decision-api.onrender.com/api/v1/decision</pre>
+<h2>Authentication</h2>
+<pre>Authorization: Bearer YOUR_API_KEY</pre>
+<p>Contact <a href="mailto:donceletta@getcacs.com?subject=API Key Request" style="color:#1D9E75;">donceletta@getcacs.com</a> to receive your API key.</p>
+<h2>Request Format</h2>
+<pre>{
+  "participant_id": "string",
+  "org_id":         "string",
+  "funding_amount": 4800,
+  "docs": {
+    "photoId":     { "status": "verified" },
+    "ssn":         { "status": "verified" },
+    "birth":       { "status": "verified" },
+    "cert":        { "status": "verified" },
+    "eligibility": { "status": "verified" }
+  },
+  "callback_url": "https://your-system.com/webhook"
+}</pre>
+<h2>Document Status Values</h2>
+<pre>verified | uploaded | pending | missing | expired | invalid</pre>
+<h2>Decision Rules</h2>
+<ul>
+<li><strong>BLOCKED</strong> — photoId, ssn, or birth missing/invalid OR cert invalid. Funding locked.</li>
+<li><strong>ACTION REQUIRED</strong> — any document expired OR non-critical document missing. Funding locked.</li>
+<li><strong>PENDING</strong> — all documents present but not all verified. Funding on hold.</li>
+<li><strong>CLEARED</strong> — all documents verified, no flags. Funding released.</li>
+</ul>
+<h2>Node.js Example</h2>
+<pre>const fetch = require('node-fetch');
+
+async function runClearanceCheck(participantId, orgId, docs) {
+  const response = await fetch(
+    'https://cacs-decision-api.onrender.com/api/v1/decision',
+    { method: 'POST',
+      headers: { 'Content-Type': 'application/json',
+        'Authorization': 'Bearer YOUR_API_KEY' },
+      body: JSON.stringify({ participant_id: participantId,
+        org_id: orgId, funding_amount: 4800, docs }) });
+  return await response.json();
+}</pre>
+<h2>Python Example</h2>
+<pre>import requests
+
+def run_clearance_check(participant_id, org_id, docs):
+    response = requests.post(
+        'https://cacs-decision-api.onrender.com/api/v1/decision',
+        headers={ 'Authorization': 'Bearer YOUR_API_KEY' },
+        json={ 'participant_id': participant_id,
+               'org_id': org_id, 'funding_amount': 4800,
+               'docs': docs })
+    return response.json()</pre>
+<h2>Security and Auditability</h2>
+<ul>
+<li>Every request requires a Bearer token validated server-side</li>
+<li>Invalid or missing tokens return 401 Unauthorized immediately</li>
+<li>Every decision is permanently written to a PostgreSQL audit database</li>
+<li>Each clearance_id is unique and timestamped to the millisecond</li>
+<li>The audit log cannot be edited or deleted via the API</li>
+</ul>
+<h2>Support</h2>
+<p>Email: <a href="mailto:donceletta@getcacs.com" style="color:#1D9E75;">donceletta@getcacs.com</a><br>
+API Docs: <a href="/api-docs.html" style="color:#1D9E75;">getcacs.com/api-docs</a></p>
+</body>
+</html>
