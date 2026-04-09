@@ -142,6 +142,50 @@
     </div>
   </section>
 
+  <!-- QUICKSTART -->
+<section class="features" id="quickstart">
+  <div class="container">
+    <h2 class="section-title">One request. One decision.</h2>
+    <p class="section-sub">Send five document statuses. Receive a binding clearance decision in under 200ms.</p>
+    <div class="features-grid" style="grid-template-columns: 1fr 1fr; gap: 24px;">
+      <div class="feature-card" style="font-family: monospace; font-size: 0.82rem; background: #0f1923; color: #e2e8f0; border: none; padding: 24px;">
+        <p style="color: #64748b; margin-bottom: 12px; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;">Request</p>
+        <p style="color: #94a3b8;">POST /api/v1/decision</p>
+        <p style="color: #94a3b8;">Authorization: Bearer YOUR_API_KEY</p>
+        <br/>
+        <p style="color: #e2e8f0;">{</p>
+        <p style="color: #e2e8f0; padding-left: 16px;">"participant_id": "P-001",</p>
+        <p style="color: #e2e8f0; padding-left: 16px;">"org_id": "org_001",</p>
+        <p style="color: #e2e8f0; padding-left: 16px;">"funding_amount": 4800,</p>
+        <p style="color: #e2e8f0; padding-left: 16px;">"docs": {</p>
+        <p style="color: #e2e8f0; padding-left: 32px;">"photoId": { "status": "verified" },</p>
+        <p style="color: #e2e8f0; padding-left: 32px;">"ssn": { "status": "verified" },</p>
+        <p style="color: #e2e8f0; padding-left: 32px;">"birth": { "status": "verified" },</p>
+        <p style="color: #e2e8f0; padding-left: 32px;">"cert": { "status": "verified" },</p>
+        <p style="color: #e2e8f0; padding-left: 32px;">"eligibility": { "status": "verified" }</p>
+        <p style="color: #e2e8f0; padding-left: 16px;">}</p>
+        <p style="color: #e2e8f0;">}</p>
+      </div>
+      <div class="feature-card" style="font-family: monospace; font-size: 0.82rem; background: #0f1923; color: #e2e8f0; border: none; padding: 24px;">
+        <p style="color: #64748b; margin-bottom: 12px; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase;">Response — 200 OK</p>
+        <p style="color: #e2e8f0;">{</p>
+        <p style="color: #e2e8f0; padding-left: 16px;">"clearance_id": "CLEAR-2026-001",</p>
+        <p style="color: #1D9E75; padding-left: 16px;">"decision": "CLEARED",</p>
+        <p style="color: #e2e8f0; padding-left: 16px;">"reason": "All documents verified.",</p>
+        <p style="color: #e2e8f0; padding-left: 16px;">"consequence": "Funding authorized.",</p>
+        <p style="color: #e2e8f0; padding-left: 16px;">"funding_status": "released",</p>
+        <p style="color: #e2e8f0; padding-left: 16px;">"funding_amount": 4800,</p>
+        <p style="color: #e2e8f0; padding-left: 16px;">"requested_at": "2026-04-08T12:00:00Z",</p>
+        <p style="color: #e2e8f0; padding-left: 16px;">"decided_at": "2026-04-08T12:00:00.171Z"</p>
+        <p style="color: #e2e8f0;">}</p>
+      </div>
+    </div>
+    <p class="section-sub" style="margin-top: 24px; margin-bottom: 0;">
+      <a href="mailto:pilot@getcacs.com?subject=API Access Request" style="color: var(--accent); font-weight: 700;">Get your API key</a> and make your first decision call in under 10 minutes.
+    </p>
+  </div>
+</section>
+
   <!-- REST API -->
   <section class="features" id="api">
     <div class="container">
